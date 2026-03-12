@@ -35,29 +35,6 @@ resource "aws_s3_bucket" "logging" {
   }
 }
 
-
-##############################################################################
-# OWNERSHIP CONTROLS
-##############################################################################
-
-resource "aws_s3_bucket_ownership_controls" "example" {
-  bucket = aws_s3_bucket.example.id
-
-  rule {
-    object_ownership = var.object_ownership
-  }
-}
-
-resource "aws_s3_bucket_ownership_controls" "logging" {
-  count  = var.enable_logging ? 1 : 0
-  bucket = aws_s3_bucket.logging[0].id
-
-  rule {
-    object_ownership = var.logging_object_ownership
-  }
-}
-
-
 ##############################################################################
 # PUBLIC ACCESS BLOCK
 ##############################################################################
