@@ -176,15 +176,3 @@ variable "replication_destination_bucket_arn" {
   description = "ARN of the destination bucket for replication"
   type = string
 }
-
-variable "object_ownership" {
-  description = "Object ownership for example bucket"
-  type        = string
-  default     = "BucketOwnerEnforced"
-}
-
-variable "logging_object_ownership" {
-  description = "Object ownership for logging bucket"
-  type        = string
-  default     = "BucketOwnerEnforced"
-}
