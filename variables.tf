@@ -188,14 +188,3 @@ variable "logging_object_ownership" {
   type        = string
   default     = "BucketOwnerEnforced"
 }
-
-variable "object_ownership" {
-  description = "Object ownership for example bucket"
-  type        = string
-  default     = "BucketOwnerEnforced"
-}
-
-variable "logging_object_ownership" {
-  description = "Object ownership for logging bucket"
-  type        = string
-}
