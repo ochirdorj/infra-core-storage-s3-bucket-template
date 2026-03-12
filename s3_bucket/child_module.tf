@@ -1,14 +1,14 @@
 module "aws_s3_bucket" {
-  source = "github.com/aKumoProject-13/infra-core-storage-s3-bucket-template//s3_bucket/modules?ref=feature/s3_bucket"
+  source = "git::https://github.com/ochirdorj/infra-core-storage-s3-bucket-template.git//modules/s3_bucket?ref=067a83860ef5f0782a8171e72e4702333dc23ae7"
 ##input variables##
 enable_logging = true
-bucket_name = "dev-use1-ap13-s3-testing-example"
+bucket_name = "sandbox-use1-ap13-s3-testing-example"
 lock_object = false
 tag_Environment = "Dev"
 tag_Managed_By = "terraform"
 tag_Project = "ap13"
 tag_Team = "devops"
-tag_Owner = "eenkhchuluun@akumoproject.com"
+tag_Owner = "erdenetugs@gmail.com"
 bucket_versioning_status = "Suspended"
 object_lock_mode = "GOVERNANCE"
 years = "1"
@@ -32,4 +32,6 @@ transfer_acceleration = "Enabled"
 website_enable = true
 key_prefix_equals = "docs/"
 replace_key_prefix_with = "documents/"
+enable_relication = false
+replication_destination_bucket_arn = ""
 }

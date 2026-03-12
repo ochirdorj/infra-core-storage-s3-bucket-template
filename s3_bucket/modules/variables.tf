@@ -166,3 +166,36 @@ variable "replace_key_prefix_with" {
   Requests matching the condition will be redirected to this prefix."
   EOT
 }
+
+variable "enable_replication" {
+  description = "Enable cross-region replication"
+  type = bool
+}
+
+variable "replication_destination_bucket_arn" {
+  description = "ARN of the destination bucket for replication"
+  type = string
+}
+
+variable "object_ownership" {
+  description = "Object ownership for example bucket"
+  type        = string
+  default     = "BucketOwnerEnforced"
+}
+
+variable "logging_object_ownership" {
+  description = "Object ownership for logging bucket"
+  type        = string
+  default     = "BucketOwnerEnforced"
+}
+
+variable "object_ownership" {
+  description = "Object ownership for example bucket"
+  type        = string
+  default     = "BucketOwnerEnforced"
+}
+
+variable "logging_object_ownership" {
+  description = "Object ownership for logging bucket"
+  type        = string
+}
