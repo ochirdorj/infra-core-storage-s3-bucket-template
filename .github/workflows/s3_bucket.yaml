@@ -83,6 +83,13 @@ jobs:
               restore-keys: |
                 terraform-${{ runner.os }}-
           
+          - name: Configure AWS Credentials   # ← add this
+            uses: aws-actions/configure-aws-credentials@v4
+            with:
+              role-to-assume: ${{ secrets.AWS_PROD_ROLE_ARN }}
+              aws-region: ${{ secrets.AWS_REGION }}
+              role-session-name: GitHubActions-TerraformValidate
+          
           - name: Terraform Format check
             id: fmt
             working-directory: ${{ env.TF_Working_Dir }}
