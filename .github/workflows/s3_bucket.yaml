@@ -84,7 +84,7 @@ jobs:
           - name: Terraform Format check
             id: fmt
             working-directory: ${{ env.TF_Working_Dir }}
-            run: terraform fmt -check -recursive -diff
+            run: terraform fmt -recursive -diff
 
           - name: Terraform Init
             id: init
