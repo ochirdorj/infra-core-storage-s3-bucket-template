@@ -152,13 +152,10 @@ jobs:
             working-directory: ${{ env.TF_Working_Dir }}
             run: |
               terraform plan \
-                -var-file="envs/prod.tfvars" \
                 -out=prod.tfplan \
                 -no-color \
                 -detailed-exitcode 2>&1 | tee plan_output.txt
               echo "exitcode=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
-            env:
-              TF_VAR_environment: prod
             continue-on-error: true
 
           - name: Upload Plan Artifact
