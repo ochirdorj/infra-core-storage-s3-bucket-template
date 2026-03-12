@@ -173,6 +173,17 @@ resource "aws_s3_bucket_lifecycle_configuration" "example" {
   count  = var.enable_life_cycle_rules ? 1 : 0
   bucket = aws_s3_bucket.example.id
 
+   rule {
+    id     = "abort-incomplete-uploads"
+    status = "Enabled"
+
+    filter {}
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+
   rule {
     id     = "log-expiration-rule"
     status = "Enabled"
@@ -184,10 +195,6 @@ resource "aws_s3_bucket_lifecycle_configuration" "example" {
           rule = var.object_tag
         }
       }
-    }
-
-    abort_incomplete_multipart_upload {
-      days_after_initiation = 7
     }
 
     transition {
