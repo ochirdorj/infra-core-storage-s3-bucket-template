@@ -150,7 +150,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "example" {
   count  = var.enable_life_cycle_rules ? 1 : 0
   bucket = aws_s3_bucket.example.id
 
-   rule {
+  rule {
     id     = "abort-incomplete-uploads"
     status = "Enabled"
 

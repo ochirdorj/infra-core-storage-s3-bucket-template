@@ -1,90 +1,90 @@
 variable "enable_logging" {
-  type = bool
+  type        = bool
   description = "true = enable logging, false = disable logging"
 }
 
 variable "bucket_name" {
-  type = string
-  description = "Name of the bucket"  
+  type        = string
+  description = "Name of the bucket"
 }
 
 variable "lock_object" {
-  type = bool
+  type        = bool
   description = "Choose object lock true or false"
 }
 
 variable "tag_Environment" {
-  type = string
+  type        = string
   description = "Environment"
 }
 
 variable "tag_Managed_By" {
-  type = string
+  type        = string
   description = "Name of the tool"
 }
 
 variable "tag_Project" {
-  type = string
+  type        = string
   description = "Project name"
 }
 
 variable "tag_Team" {
-  type = string
+  type        = string
   description = "Team"
 }
 
 variable "tag_Owner" {
-  type = string
+  type        = string
   description = "Owner"
 }
 
 variable "bucket_versioning_status" {
-  type = string
+  type        = string
   description = "Configuration of versioning. Make is Enabled or Suspended"
 }
 
 variable "object_lock_mode" {
-  type = string
+  type        = string
   description = "Strong protection mode. Even root user is unable to delete the object. Make it COMPLIANCE or GOVERNANCE, delete the resource if you don't want retention"
 }
 
 variable "years" {
-  type = string
+  type        = string
   description = "Object lock retention year"
 }
 
 variable "block_acls" {
-  type = bool
+  type        = bool
   description = "true or false in block public acls"
 }
 
-variable "block_policy"{
-  type = bool
+variable "block_policy" {
+  type        = bool
   description = "true or false in block public policy"
 }
 
-variable "ignore_acls"{
-  type = bool
+variable "ignore_acls" {
+  type        = bool
   description = "true or false in ignore public acls"
 }
 
 variable "restrict_buckets" {
   description = "true or false restrict public buckets"
-  type = bool
+  type        = bool
 }
 
 variable "enable_life_cycle_rules" {
-  type = bool
+  type        = bool
   description = "true = enable or false = disable lifecycel policy"
 }
 
 variable "object_prefix" {
-  type = string
+  type        = string
   description = "This is object prefix. Use it when you apply lifecycle rule to the object"
 }
 
 variable "object_tag" {
-  type = string
+  type        = string
   description = <<EOT
   "This object tag. Use it when you apply lifecycle rule to the object.
    Keep in mine object tag and object prefix both needed to be satisfied in order to apply lifecycle rule"
@@ -92,12 +92,12 @@ variable "object_tag" {
 }
 
 variable "current_transition_days" {
-  type = number
+  type        = number
   description = "number of days after current object to transit different storage class"
 }
 
 variable "current_transition_storage_class" {
-  type = string
+  type        = string
   description = <<EOT
   "transition storage type of current object. Choose one of STANDARD, STANDARD_IA, ONEZONE_IA,
    INTELLIGENT_TIERING, DEEP_ARCHIVE, REDUCED_REDUNDANCY"
@@ -105,17 +105,17 @@ variable "current_transition_storage_class" {
 }
 
 variable "current_expiration_days" {
-  type = number
+  type        = number
   description = "The number of days after which the current object version will be permanently deleted"
 }
 
 variable "non_current_transition_days" {
-  type = string
+  type        = string
   description = "number of days after non current object to transit different storage class"
 }
 
 variable "non_current_transition_storage_class" {
-  type = string
+  type        = string
   description = <<EOT
   "non current object will transit to this storage class. choose one of STANDARD, STANDARD_IA, ONEZONE_IA,
    INTELLIGENT_TIERING, DEEP_ARCHIVE, REDUCED_REDUNDANCY"
@@ -123,37 +123,37 @@ variable "non_current_transition_storage_class" {
 }
 
 variable "non_current_expiration_days" {
-  type = number
+  type        = number
   description = "The number of days after which the non current object version will be permanently deleted"
 }
 
 variable "enable_encryption" {
-  type = bool
+  type        = bool
   description = "true encryption enabled, false encryption disabled"
 }
 
 variable "sse_algorithm" {
-  type = string
+  type        = string
   description = "choose aws:kms , AES256, "
 }
 
 variable "kms_key_arn" {
-  type = string
+  type        = string
   description = "enter kms cumtomer managed key arn"
 }
 
 variable "transfer_acceleration" {
-  type = string
+  type        = string
   description = "Enable or Suspended transfer acceleration"
 }
 
 variable "website_enable" {
-  type = bool
+  type        = bool
   description = "Static website hosting. Enable = true, Disable = false"
 }
 
 variable "key_prefix_equals" {
-  type = string
+  type        = string
   description = <<EOT
   "The object key prefix used as a condition for the routing rule. Requests with keys
    starting with this prefix will trigger the redirect"
@@ -161,7 +161,7 @@ variable "key_prefix_equals" {
 }
 
 variable "replace_key_prefix_with" {
-  type = string
+  type        = string
   description = <<EOT
   "The new key prefix that replaces the matched prefix in the redirect. 
   Requests matching the condition will be redirected to this prefix."
@@ -170,10 +170,10 @@ variable "replace_key_prefix_with" {
 
 variable "enable_replication" {
   description = "Enable cross-region replication"
-  type = bool
+  type        = bool
 }
 
 variable "replication_destination_bucket_arn" {
   description = "ARN of the destination bucket for replication"
-  type = string
+  type        = string
 }
