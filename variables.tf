@@ -177,8 +177,3 @@ variable "replication_destination_bucket_arn" {
   description = "ARN of the destination bucket for replication"
   type        = string
 }
-
-variable "dynamodb_table_name" {
-  description = "Name of the DynamoDB table for Terraform state locking"
-  type        = string
-}
